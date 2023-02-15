@@ -1,19 +1,22 @@
 var express = require('express');
 var router = express.Router();
 
-/* GET home page. */
-router.get('/', function(req, res) {
-  res.render('main', { title: '예Zl문go' });
-});
+const mainRoute = require('./mainRoute');
+const userRoute = require('./usersRoute');
+const myPageRoute = require('./myPageRoute');
+const cardRoute = require('./cardRoute');
+const addressRoute = require('./addressRoute');
+const bookRoute = require('./bookRoute');
+const orderRoute = require('./orderRoute');
+const cartRoute = require('./cartRoute');
 
-/* login page */
-router.get('/login', function(req, res) {
-  res.render('login');
-});
-
-/* signup page */
-router.get('/signup', function(req, res) {
-  res.render('signup');
-});
+router.use('/', mainRoute);
+router.use('/user', userRoute);
+router.use('/myPage', myPageRoute);
+router.use('/card', cardRoute);
+router.use('/address', addressRoute);
+router.use('/book', bookRoute);
+router.use('/order', orderRoute);
+router.use('/cart', cartRoute);
 
 module.exports = router;

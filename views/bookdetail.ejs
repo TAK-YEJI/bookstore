@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/stylesheets/bookdetail.css">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+    <title>Book Detail</title>
+</head>
+
+<body>
+    <div class="container">
+        <form method="post" action="/book/bookDelete/<%= book_info[0].book_id %>">
+            <% for(let book of book_info){ %>
+                <div class="row">
+                    <div>
+                    <img src="../../images/book/<%= book.book_id %>.jpeg" width="400" height="500">
+                    </div>
+                    <div class="col-lg-7 col-md-7 col-sm-6">
+                        <h3 class="card-title">
+                            <%= book.book_title %>
+                        </h3>
+                        <h6 class="card-subtitle">
+                            <%= book.book_writer %> 지음 | <%= book.book_publisher %>
+                        </h6>
+                        <h2 class="mt-5">
+                            <%= book.book_price %> 원
+                        </h2>
+                        <h6 class="card-subtitle">
+                            재고량 <%= book.book_stock %>
+                        </h6>
+                <button class="btn btn-dark btn-rounded" type="button" onclick="location.href='/cart/cartAdd/<%= book.book_id %>'"><i class="fa fa-shopping-cart"></i></button>
+            <% } %>
+            
+            <button class="btn btn-primary btn-rounded" type="button" onclick="location.href='/order/page/<%= book_info[0].book_id %>'">구매</button>
+            <button class="btn btn-primary btn-rounded" type="button" onclick="location.href='/book/bookUpdate/<%= book_info[0].book_id %>'">수정</button>
+            <button class="btn btn-primary btn-rounded" type="submit" onclick="location.href='/book/bookDelete/<%= book_info[0].book_id %>'">삭제</button>
+
+
+        </form>
+        </ul>
+    </div>
+</body>
+</html> 

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lnag="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Cart</title>
+    <link rel="stylesheet" href="/stylesheets/cart.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="main-mypage">
+        <form method="post" action="/cart/cartOrderPage/<%= cart_info[0].cart_id %>">
+            <div class="main-wrap">
+                <header>
+                    <div class="title-mypage">
+                        <h1> Book Cart </h1>
+                    </div>
+                </header>
+                <hr>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="table-responsive">
+                            <table class="table user-list">
+                                <thead>
+                                    <tr>
+                                        <th><span>Book</span></th>
+                                        <th><span>가격</span></th>
+                                        <th>&nbsp;</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <% for(let i=0; i < book_info.length; i++) { %>
+                                    <tr>
+                                        <td>
+                                            <b name="book_id"> <%= book_info[i].book_id %> </b>
+                                            <h4><%= book_info[i].book_title %></h4>
+                                            <h6><%= book_info[i].book_writer %> 지음 |  <%= book_info[i].book_publisher %></h6>
+                                        </td>
+                                        <td><%= book_info[i].book_price %> 원</td>
+                                    </tr>
+                                    <% } %>                                                           
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div class="btn-wrap">
+                    <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
+                    <button type="submit" name="btn" >주문하기</button>
+                    <button type="submit" name="btn" onclick="javascript:form.action='/cart/cartDelete/<%= cart_info[0].cart_id %>';"> 삭제 </button>
+                </div>
+                </div>
+            </div>
+        </form>  
+    </div>
+</body>
+</html>

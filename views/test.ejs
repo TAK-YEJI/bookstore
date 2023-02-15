@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lnag="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Cart</title>
+    <link rel="stylesheet" href="/stylesheets/cart.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+
+
+</head>
+
+<body>
+
+
+    <div class="main-mypage">
+        <div class="main-wrap">
+            <header>
+                <div class="title-mypage">
+                    <h1> Book Cart </h1>
+                </div>
+            </header>
+
+            <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
+            <hr>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="table-responsive">
+                            <table class="table user-list">
+                                <thead>
+                                    <tr>
+                                        <th><span>Book</span></th>
+                                        <th><span>제목</span></th>
+                                        <th><span>작가 | 출판사</span></th>
+                                        <th><span>가격</span></th>
+                                        <th><span>재고량</span></th>
+                                        <th><span>주문수량</span></th>
+                                        <th>&nbsp;</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <% for(let book of book_info){ %>
+                                    <tr>
+                                        <form method="post" action="/book/bookAdd">
+                                            <td><%= book.book_id%></td>
+                                            <td><%=book.book_title%></td>
+                                            <td><%= book.book_writer %> 지음 |  <%= book.book_publisher %></td>
+                                            <td><%=book.book_price%></td>
+                                            <td><%=book.book_stock%></td>
+                                            <td><input class="form-control" type="text" name="book_stock"
+                                                    value="<%=book.book_stock%>"></td>
+                                                   
+                                            <td><input type="submit" value="수정" class="btn btn-success" /></td>
+                                            <td><input type="submit" value="삭제" class="btn btn-success"
+                                                    onclick="javascript: form.action='/adress/addressDelete';" /></td>
+                                        </form>
+                                    </tr>
+                                    <% } %>
+
+                                    <tr>
+                                        <td colspan="6" class="text-right"><strong>Total</strong></td>
+                                        <th>&nbsp;</th>
+                                        <td class="text-left">$88.00</td>
+                                    </tr>
+                                            
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <hr>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="table-responsive">
+                            <table class="table user-list">
+                                <h3>카드</h3>
+                                <thead>
+                                    <tr>
+                                        <th><span>카드종류</span></th>
+                                        <th><span>카드번호</span></th>
+                                        <th>&nbsp;</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <% for(let card of card_info){ %>
+                                    <tr>
+                                        <form method="post" >
+                                            <td><%= card.card_type%></td>
+                                            <td><%=card.card_id%></td>
+                                        </form>
+                                    </tr>
+                                    <% } %> 
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <hr>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="table-responsive">
+                        <table class="table user-list">
+                            <h3>배송지</h3>
+                            <thead>
+                                <tr>
+                                    <th><span>우편번호</span></th>
+                                    <th><span>기본주소</span></th>
+                                    <th><span>상세주소</span></th>
+                                    <th>&nbsp;</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <% for(let card of card_info){ %>
+                                <tr>
+                                    <form method="post" >
+                                        <td><%= address.address_post%></td>
+                                        <td><%=address.address_default%></td>
+                                        <td><%=address.address_detail%></td>
+
+                                    </form>
+                                </tr>
+                                <% } %> 
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+            <div>
+                <div class="btn-wrap">
+                    <button type="submit" name="btn">저장하기</button>
+                </div>
+                <div class="btn-wrap">
+                    <button type="submit" name="btn">주문하기</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</body>
+</html>

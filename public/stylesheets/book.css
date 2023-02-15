@@ -1,0 +1,83 @@
+:root{
+	--body-background-color: #f5f6f7;
+	--font-color: #4e4e4e;
+	--border-gray-color : #dadada;
+	--color: #748DA6;
+	--border-color: #748DA6;
+}
+body{
+    background:var(--body-background-color);
+}
+*{
+	margin:0;
+	padding:0;
+}
+input{
+    cursor: pointer
+}
+
+footer{
+    text-align: center;
+    margin: 10px;
+}
+
+.main-book{
+	width:100%;
+	display:flex;
+	flex-direction:column;
+	align-items:center;
+	margin-top: 21px;
+}
+.main-book .main-wrap{
+	width:768px;
+    padding-top:55px;
+}
+.main-book .main-wrap header .title-book{
+	display:flex;	
+	flex-direction: column;
+    text-align: center;
+}
+
+
+.book-wrap{
+	padding-top: 60px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+h3{
+    margin:19px 0px 8px;
+    text-align: left;
+    font-size: 14px;
+    font-family: Dotum,'돋움',Helvetica,sans-serif;
+}
+
+.book-input{
+	width: 465px;
+	height :48px;
+    display:flex;
+	border: solid 1px  #dadada;
+	background: white;
+	margin-top: 13px;
+}
+.book-input input{
+	border: none;
+	width:430px;
+	margin-top: 10px;
+	font-size: 14px;
+	margin-left: 10px;
+	height:30px;
+}
+.book-btn-wrap {
+	padding-top: 13px;
+}
+.book-btn-wrap button{
+	width: 465px;
+	height :48px;
+	font-size: 18px;
+	background: #748DA6;
+	color: white;
+	border: solid 1px #748DA6;
+}
+    
